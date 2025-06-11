@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Etiquetas HTML</title>
+</head>
+<body>
+
+  <h1>Uso de etiquetas multimedia y enlaces en HTML</h1>
+
+  <!-- Imagen -->
+  <h2>Etiqueta &lt;img&gt;</h2>
+  <p>Se usa para insertar imágenes. Es una etiqueta vacía, no tiene cierre.</p>
+  <img src="https://via.placeholder.com/300x200" alt="Imagen de ejemplo" width="300" height="200">
+  <!--
+    Atributos:
+    - src: ruta de la imagen (puede ser local o URL externa)
+    - alt: texto alternativo (importante para accesibilidad)
+    - width / height: opcional, define dimensiones
+  -->
+
+  <!-- Video -->
+  <h2>Etiqueta &lt;video&gt;</h2>
+  <p>Permite insertar videos. Se recomienda usar varios formatos para compatibilidad.</p>
+  <video width="320" height="240" controls>
+    <source src="video-ejemplo.mp4" type="video/mp4">
+    <source src="video-ejemplo.ogg" type="video/ogg">
+    Tu navegador no soporta la reproducción de video.
+  </video>
+  <!--
+    Atributos:
+    - controls: muestra los controles de reproducción
+    - autoplay, loop, muted, poster: otros atributos opcionales
+    - source: especifica los archivos de video y sus formatos
+  -->
+ <!-- video de Youtube -->
+
+    <h2>Video de YouTube</h2>
+    <p>Para insertar un video de YouTube, usa la etiqueta &lt;iframe&gt;.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/aMHAhA1v9Zc?si=ovU5TTLfzD1-LrDr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <!--feed de instagram-->
+    <h2>Feed de Instagram</h2>
+    <p>Para insertar un feed de Instagram, usa la etiqueta &lt;blockquote&gt;.</p>
+
+    
+
+  <!-- Hipervínculo -->
+  <h2>Etiqueta &lt;a&gt;</h2>
+  <p>Sirve para crear enlaces a otras páginas, documentos o ubicaciones.</p>
+  <a href="https://www.wikipedia.org" target="_blank">Ir a Wikipedia</a>
+  <!--
+    Atributos:
+    - href: destino del enlace
+    - target="_blank": abre el enlace en una nueva pestaña
+  -->
+
+</body>
+</html>
