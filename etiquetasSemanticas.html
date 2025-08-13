@@ -1,0 +1,71 @@
+<!-- Landing Page básica usando solo HTML y etiquetas semánticas -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Semántica</title>
+    <style>
+        h2,h3{
+            background-color: aqua;
+            color: blueviolet;
+        }
+        p{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: rgb(25, 25, 25);
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Encabezado principal del sitio -->
+    <header>
+      <!-- header: Define la cabecera de la página, suele contener el logo, nombre del sitio o menú principal -->
+      <h1 style="background-color: blue;color: red; font-family: Verdana, Geneva, Tahoma, sans-serif;">Bienvenido a Nuestra Landing Page</h1>
+      <nav>
+        <!-- nav: Sección de navegación principal del sitio -->
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#acerca">Acerca de</a></li>
+          <li><a href="#contacto">Contacto</a></li>          
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Sección principal del contenido -->
+    <main>
+      <!-- main: Contenido principal y único de la página -->
+      <section class="servicios">
+        <!-- section: Agrupa contenido relacionado, en este caso los servicios -->
+        <h2>Nuestros Servicios</h2>
+        <article>
+          <!-- article: Contenido independiente y auto-contenido, como una noticia o bloque informativo -->
+          <h3>Desarrollo Web</h3>
+          <p>Ofrecemos soluciones modernas y eficientes para tu presencia online.</p>
+        </article>
+        <article>
+          <h3>Consultoría</h3>
+          <p>Te ayudamos a mejorar tus procesos digitales.</p>
+        </article>
+      </section>
+
+      <section class="acerca">
+        <h2>Acerca de Nosotros</h2>
+        <p>Somos un equipo apasionado por la tecnología y la innovación.</p>
+      </section>
+    </main>
+
+    <!-- Pie de página con información de contacto -->
+    <footer>
+      <!-- footer: Define el pie de página, suele contener información de contacto, derechos de autor, etc. -->
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <address>
+          <!-- address: Información de contacto físico o digital -->
+          Email: <a href="mailto:info@ejemplo.com">info@ejemplo.com</a><br>
+          Teléfono: +34 123 456 789
+        </address>
+      </section>
+      <p>&copy; 2025 Mi Empresa. Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>
