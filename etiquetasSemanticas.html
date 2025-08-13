@@ -6,22 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page Semántica</title>
     <style>
-        h2,h3{
-            background-color: aqua;
-            color: blueviolet;
+        selector{
+                  propiedad:valor;
+                  propiedad2: valor;
+                }
+
+        h3{
+            background-color: indigo;
+            color: cornsilk;
+            border-radius: 5px;
+            width: 30%;
+            text-align: center;
         }
-        p{
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            color: rgb(25, 25, 25);
+
+        h2{
+            background-color: rgb(176, 136, 205);
+            color: cornsilk;
+            border-radius: 5px;
+            width: 30%;
+            text-align: center;
+            transition: ease-in .5s;
         }
+        h2:hover{
+          background-color: cornsilk;
+          color: rgb(176, 136, 205);
+          transition: ease-in .5s;
+        }
+
+
     </style>
+
   </head>
   <body>
     <!-- Encabezado principal del sitio -->
     <header>
       <!-- header: Define la cabecera de la página, suele contener el logo, nombre del sitio o menú principal -->
-      <h1 style="background-color: blue;color: red; font-family: Verdana, Geneva, Tahoma, sans-serif;">Bienvenido a Nuestra Landing Page</h1>
+      <h1 style="background-color: darkturquoise; color: cornsilk;border-radius: 5px;text-align: center;">Bienvenido a Nuestra Landing Page</h1>
+
       <nav>
+        
         <!-- nav: Sección de navegación principal del sitio -->
         <ul>
           <li><a href="#servicios">Servicios</a></li>
@@ -42,8 +65,9 @@
           <h3>Desarrollo Web</h3>
           <p>Ofrecemos soluciones modernas y eficientes para tu presencia online.</p>
         </article>
-        <article>
+        <article style="background-color: rgb(231, 167, 167); width: 45%;">
           <h3>Consultoría</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex delectus quos sunt minima, aspernatur cum molestias distinctio! Atque possimus placeat vel! Nisi incidunt veniam quo neque saepe, sapiente deleniti quos!</p>
           <p>Te ayudamos a mejorar tus procesos digitales.</p>
         </article>
       </section>
