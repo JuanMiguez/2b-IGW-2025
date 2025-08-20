@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guía CSS Externo — El Señor de los Anillos</title>
+
+  <!-- Enlace a la hoja de estilos EXTERNA -->
+  <link rel="stylesheet" href="css/selectores.css" />
+  
+</head>
+<body>
+  <!-- HEADER semántico con branding y navegación principal -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Anales de la Tierra Media</h1>
+
+      <!-- NAV semántico: enlaces internos para secciones -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#comunidad">La Comunidad</a></li>
+          <li><a href="#reinos">Reinos</a></li>
+          <li><a href="#citas">Citas</a></li>
+          <li><a href="#suscripcion" class="btn">Suscripción</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN semántico: contenido principal del documento -->
+  <main id="contenido" class="container">
+    <!-- SECTION tipo “hero” para titular + introducción -->
+    <section id="hero" class="hero">
+      <h2>Practiquemos CSS externo con la Tercera Edad</h2>
+      <p class="lead">
+        Este documento ejemplifica cómo organizar HTML semántico y aplicar estilos desde <strong>styles.css</strong>.
+      </p>
+      <p class="muted">Tip: inspeccioná cada clase en la hoja de estilos.</p>
+    </section>
+
+    <!-- SECTION con layout de grid: ARTICLE + ASIDE -->
+    <section id="comunidad" class="grid two-col">
+      <!-- ARTICLE semántico: una unidad de contenido independiente -->
+      <article class="card">
+        <header>
+          <h3>La Comunidad del Anillo</h3>
+          <!-- time semántico para fechas -->
+          <p class="meta">
+            Fundada en <time datetime="3018-10-25">25/10/3018 (Tercera Edad)</time> en Rivendel
+          </p>
+        </header>
+
+        <p>
+          Nueve caminantes, un propósito: escoltar el Anillo Único lejos de la sombra. Este
+          bloque sirve para practicar tipografía, espaciados y enlaces
+          <a href="#reinos">contextuales</a>.
+        </p>
+
+        <!-- figure + figcaption para contenido multimedia con pie -->
+        <figure>
+          <img src="img/anillo-unico.jpg" alt="El Anillo Único sobre un pergamino antiguo" />
+          <figcaption>El Anillo Único — Inscripción en tengwar (ilustrativa).</figcaption>
+        </figure>
+
+        <p>
+          A continuación verás <code>&lt;code&gt;</code> embebido y etiquetas de “chips”
+          como ejemplo de estilos con el <em>box model</em>:
+        </p>
+
+        <footer class="tags">
+          <a href="#" class="tag tag--epica">Épica</a>
+          <a href="#" class="tag tag--viaje">Viaje</a>
+          <a href="#" class="tag tag--fantasia">Fantasía</a>
+        </footer>
+      </article>
+
+      <!-- ASIDE semántico: contenido relacionado (llamado/nota) -->
+      <aside class="callout">
+        <h4>Verso célebre</h4>
+        <!-- blockquote para citas; cite indica fuente (ilustrativa) -->
+        <blockquote cite="https://www.tolkienestate.com/">
+          <p><q>No todos los que vagan están perdidos.</q> — <cite>Bilbo Bolsón</cite></p>
+        </blockquote>
+        <p class="note">
+          Este recuadro practica bordes, sombras, contraste y tipografía secundaria.
+        </p>
+      </aside>
+    </section>
+
+    <!-- Tabla con caption, thead y tbody para practicar estilos tabulares -->
+    <section id="reinos">
+      <h3>Reinos de la Tierra Media</h3>
+      <table class="tabla-reinos">
+        <caption>Comparativa rápida de reinos</caption>
+        <thead>
+          <tr>
+            <th>Reino</th>
+            <th>Capital</th>
+            <th>Raza dominante</th>
+            <th>Alineación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gondor</td>
+            <td>Minas Tirith</td>
+            <td>Hombres</td>
+            <td>Occidente</td>
+          </tr>
+          <tr>
+            <td>Rohan</td>
+            <td>Edoras</td>
+            <td>Hombres</td>
+            <td>Occidente</td>
+          </tr>
+          <tr>
+            <td>Moria</td>
+            <td>Khazad-dûm</td>
+            <td>Enanos</td>
+            <td>Neutral</td>
+          </tr>
+          <tr>
+            <td>Mordor</td>
+            <td>Barad-dûr</td>
+            <td>Orcos</td>
+            <td>Sauron</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Dos artículos en columnas: listas, código preformateado, abreviaturas, etc. -->
+    <section id="citas" class="columns">
+      <article>
+        <h4>Formato de texto</h4>
+        <p>
+          Ejemplo con <abbr title="Cascading Style Sheets">CSS</abbr>,
+          <mark>resaltado</mark> y atajos como <kbd>Ctrl</kbd> + <kbd>S</kbd>.
+        </p>
+        <!-- pre + code para bloques de código -->
+        <pre><code>/* Fragmento mínimo de CSS */
+.btn { padding: .5rem 1rem; border-radius: .5rem; }</code></pre>
+      </article>
+
+      <article>
+        <h4>Objetos y pasos</h4>
+        <!-- ul/ol con clases para estilos de listas -->
+        <ul class="lista-objetos">
+          <li>Anillo Único</li>
+          <li>Andúril</li>
+          <li>Glamdring</li>
+          <li>Cota de mithril</li>
+        </ul>
+        <ol class="pasos">
+          <li>Salir de la Comarca</li>
+          <li>Llegar a Rivendel</li>
+          <li>Cruzar Moria</li>
+          <li>Destruir el Anillo</li>
+        </ol>
+      </article>
+    </section>
+
+    <!-- Formulario con fieldset/legend, labels e inputs variados -->
+    <section id="suscripcion" class="suscripcion">
+      <h3>Suscribite al boletín de la Comarca</h3>
+      <form action="#" method="post" class="form">
+        <fieldset>
+          <legend>Datos</legend>
+
+          <label for="nombre">Nombre hobbit</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Frodo" required />
+
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" placeholder="frodo@hobbiton.me" required />
+
+          <label for="raza">Raza</label>
+          <select id="raza" name="raza">
+            <option>Hobbit</option>
+            <option>Elfo</option>
+            <option>Enano</option>
+            <option>Hombre</option>
+          </select>
+
+          <label class="checkbox">
+            <input type="checkbox" name="acepto" />
+            Acepto los términos del Concilio de Elrond
+          </label>
+        </fieldset>
+
+        <button type="submit" class="btn btn--primario">Enviar</button>
+        <button type="reset" class="btn btn--fantasma">Limpiar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER semántico con address y small -->
+  <footer class="site-footer">
+    <address>Rivendel, Valles de Imladris</address>
+    <small>&copy; 2025 — Ejemplo de estilos con hoja externa.</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,283 @@
+/* -------------------------------------------------------------
+   Archivo: styles-selectors.css
+   Instrucciones: linkear este archivo DESPUÉS de styles.css
+   Propósito: mostrar ejemplos de selectores CSS y su uso aplicado
+   ------------------------------------------------------------- */
+
+/* =========================
+   0) SELECTOR UNIVERSAL
+   - Selecciona todos los elementos del documento.
+   - Útil para resets o reglas globales pequeñas.
+   ========================= */
+* {
+  /* ejemplo: forzar box-sizing (normalmente ya puesto en styles.css) */
+  box-sizing: border-box;
+}
+
+/* =========================
+   1) SELECTOR DE TIPO (elemento)
+   - Selecciona por nombre de etiqueta: p, h1, ul, etc.
+   - Baja especificidad (es fácil sobreescribirlo).
+   ========================= */
+h1 {
+  /* ejemplo: mejor visibilidad del título principal */
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  /* no abusar: los estilos tipográficos preferiría aplicarlos por clase */
+}
+
+/* =========================
+   2) SELECTOR DE CLASE
+   - Selecciona todos los elementos con la clase indicada.
+   - Muy usado (modular y reutilizable).
+   ========================= */
+.logo{
+  /* ya existe en styles.css; aquí mostramos que .logo puede recibir efectos */
+  transition: transform .22s ease, text-shadow .2s;
+}
+.logo:hover {
+  transform: translateY(-2px) scale(1.02);
+  text-shadow: 0 4px 20px rgba(0,0,0,.6);
+}
+
+/* =========================
+   3) SELECTOR DE ID
+   - Más específico que clase y tipo. Usar con moderación (único por página).
+   ========================= */
+#hero {
+  /* ejemplo: resaltar la sección principal */
+  border-left: 4px solid rgba(196,162,75,.12);
+  padding-left: .85rem;
+}
+
+/* =========================
+   4) SELECTOR DESCENDIENTE (espacio)
+   - Selecciona elementos que estén dentro de otro, en cualquier nivel.
+   - Sintaxis: .padre .hijo
+   ========================= */
+.card p {
+  /* aplica a <p> dentro de cualquier .card en cualquier profundidad */
+  color: #dcd6c8;
+  margin-block: .6rem;
+}
+
+/* =========================
+   5) SELECTOR HIJO DIRECTO (>)
+   - Solo selecciona hijos inmediatos (no nietos).
+   - Útil para reglas más específicas sin aumentar la especificidad.
+   ========================= */
+.grid.two-col > article.card {
+  /* estilo aplicado solo a los article.card que sean hijos directos
+     del contenedor .grid.two-col. Esto evita afectar .card dentro
+     de otros contenedores anidados. */
+  border-left: 3px dashed rgba(196,162,75,.06);
+  padding-left: .9rem;
+}
+
+/* =========================
+   6) HERMANO ADYACENTE (+)
+   - Selecciona el elemento que sigue inmediatamente después.
+   - Ej: A + B -> B solo si viene inmediatamente después de A.
+   ========================= */
+.card + .callout {
+  /* si un .callout aparece justo después de una .card,
+     lo hacemos visualmente distinto (ejemplo de uso didáctico). */
+  margin-top: .25rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+}
+
+/* =========================
+   7) HERMANO GENERAL (~)
+   - Selecciona todos los hermanos que siguen, no sólo el inmediato.
+   ========================= */
+h3 ~ p {
+  /* cualquier <p> que venga después de un <h3> como hermano
+     recibirá este estilo. (útil para notas relacionadas) */
+  color: var(--muted);
+  font-size: .98rem;
+}
+
+/* =========================
+   8) SELECTOR DE ATRIBUTO
+   - Permite seleccionar por atributos (existencia o patrón).
+   - Ejemplos: [attr], [attr="valor"], [attr^="prefijo"], [attr$="sufijo"], [attr*="contiene"]
+   ========================= */
+/* seleccionar enlaces que usan hash (enlaces internos) */
+a[href^="#"] {
+  /* ^ significa: comienza con "#" */
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(196,162,75,.12);
+  padding-bottom: 1px;
+}
+
+/* inputs tipo checkbox */
+input[type="checkbox"] {
+  transform: scale(1.05);
+}
+
+/* seleccionar input o select con nombre "raza" */
+select[name="raza"], input[name="nombre"] {
+  /* ejemplo: estilos discretos para campos importantes */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* =========================
+   9) AGRUPACIÓN DE SELECTORES
+   - Permite aplicar la misma regla a varios selectores a la vez
+   ========================= */
+h2, h3, h4 {
+  margin-bottom: .5rem;
+  font-family: inherit;
+}
+
+/* =========================
+   10) PSEUDO-CLASES (interacción y estructura)
+   - :hover, :focus, :active, :visited, :first-child, :last-child, :nth-child(), :not()
+   ========================= */
+/* hover en navegación principal (ya hay uno; aquí otro ejemplo didáctico) */
+.main-nav a:hover,
+.main-nav a:focus {
+  background: rgba(196,162,75,.06);
+  transform: translateY(-1px);
+}
+
+/* :nth-child -> seleccionar filas pares/impares de la tabla */
+.tabla-reinos tbody tr:nth-child(even) {
+  background: rgba(255,255,255,.02); /* coincide con style previo */
+}
+.tabla-reinos tbody tr:nth-child(odd) {
+  /* ejemplo: sobreescribe algo solo en impares */
+  background: linear-gradient(90deg, rgba(0,0,0,.015), transparent);
+}
+
+/* :first-child / :last-child ejemplo */
+.tabla-reinos tbody tr:first-child td {
+  font-weight: 600;
+}
+
+/* :not -> negación, muy útil para evitar seleccionar elementos concretos */
+.container :not(.callout) > .card {
+  /* Selecciona .card que son hijos directos de .container pero NO
+     aquellos que estén dentro de .callout (ejemplo pedagógico). */
+  /* En la práctica: usar :not con prudencia para no complicar demasiado la regla */
+}
+
+/* =========================
+   11) PSEUDO-ELEMENTOS (::before, ::after, ::marker)
+   - Se usan para generar contenido virtual o decorar sin alterar el HTML.
+   ========================= */
+/* añadir un icono antes de cada tag (.tag) sin cambiar HTML */
+.tag::before {
+  /* content crea un nodo virtual; aquí usamos un símbolo unicode */
+  content: "• ";
+  margin-right: .35rem;
+  opacity: .9;
+  font-weight: 700;
+}
+
+/* decorar items de la lista de pasos con ::marker (modifica el marcador por defecto) */
+.pasos li::marker {
+  font-weight: 700;
+  color: var(--acento);
+}
+
+/* =========================
+   12) SELECTOR ADJACENTE DE ATRIBUTOS CON VALORES PARCIALES (ejemplos avanzados)
+   - ^=  inicia con, $= termina con, *= contiene
+   ========================= */
+/* todos los enlaces que terminan en ".pdf" (ejemplo hipotético) */
+a[href$=".pdf"] {
+  /* podría usarse para mostrar icono o advertencia de descarga */
+  text-decoration: underline dotted;
+  padding-right: .3rem;
+}
+
+/* enlaces que contienen "http" (posible externo) */
+a[href*="http"] {
+  /* marcar enlaces externos (si hay target="_blank" manejar con :after en producción) */
+  position: relative;
+}
+
+/* =========================
+   13) SELECTORES DE ATRIBUTO MULTI-VALOR (ej: class~="valor")
+   - [attr~="palabra"] coincide con una palabra en la lista separada por espacios.
+   ========================= */
+/* ejemplo genérico (no necesario si usas clases) */
+[class~="tag--epica"] {
+  /* igual que .tag--epica, muestra que es posible con atributo class */
+  padding-inline: .6rem;
+}
+
+/* =========================
+   14) ESPECIFICIDAD (comentario práctico)
+   - Prioridad: inline (1000) > id (100) > class/attribute/pseudo-class (10) > element/pseudo-element (1).
+   - Si dos reglas tienen la misma especificidad, gana la que aparece al final (orden importa).
+   - Evitar !important salvo para casos puntuales y enseñanza.
+   ========================= */
+/* Regla de ejemplo: especificidad mayor con id + clase */
+#hero .lead {
+  /* esta regla tiene mayor prioridad que .lead sola */
+  font-weight: 700;
+}
+
+/* =========================
+   15) EJEMPLOS DIDÁCTICOS: combinaciones útiles
+   ========================= */
+/* 15.a) selector compuesto: clase + pseudoclase + pseudoelemento */
+.btn.btn--primario:hover::after {
+  content: "";
+  display: inline-block;
+  width: .6rem; height: .6rem;
+  margin-left: .45rem;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: rgba(0,0,0,.12);
+}
+
+/* 15.b) seleccionar elementos que están en un estado accesible (focus-visible) */
+.main-nav a:focus-visible {
+  outline: 3px solid rgba(196,162,75,.25);
+  outline-offset: 3px;
+}
+
+/* =========================
+   16) CONSEJOS PRÁCTICOS (en comentario)
+   - Prefiere selectores con clase para estilos de componente.
+   - Evita selectores extremadamente largos (la mantenibilidad sufre).
+   - Usa combinadores > y + para reglas más previsibles.
+   - Ten presente la especificidad; si necesitas sobreescribir algo, añade clases o cambia el orden del CSS.
+   - Usa pseudo-elementos para añadir decoración sin tocar HTML.
+   ========================= */
+
+/* =========================
+   17) EJEMPLO FINAL: "modo profesor"
+   - Un conjunto de reglas de demostración que modifica visualmente la página
+     para que el alumno identifique qué selector produjo cada cambio.
+   ========================= */
+/* marcar todos los enlaces internos con un fondo sutil */
+a[href^="#"] {
+  background-image: linear-gradient(90deg, rgba(196,162,75,.06), rgba(196,162,75,.03));
+  border-radius: .25rem;
+}
+
+/* resaltar la primera card de la grid para enseñanza */
+.grid.two-col > article.card:first-of-type {
+  outline: 2px dashed rgba(196,162,75,.12);
+  padding: .95rem;
+}
+
+/* estilo temporal para mostrar el poder de ::before en un título */
+h3::before {
+  content: "☼ ";
+  margin-right: .35rem;
+  opacity: .7;
+}
+
+/* =========================
+   18) NOTA SOBRE RENDIMIENTO
+   - Los selectores simples (clase, id, tipo) son rápidos.
+   - Evita selectores excesivamente anidados o que dependan de muchos combinadores.
+   - En páginas educativas esto no será un problema; en apps con miles de nodos, preferir selectores claros.
+   ========================= */
+
+/* FIN del archivo: styles-selectors.css */
